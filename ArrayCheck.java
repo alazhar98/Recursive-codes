@@ -5,7 +5,6 @@ public class ArrayCheck {
         System.out.println(array220(new int[]{3, 30}, 0));
         System.out.println(array220(new int[]{3}, 0));
 
-
     }
     /*
     first check if if the array has fewer than 2 elements remaining from the current index return false
