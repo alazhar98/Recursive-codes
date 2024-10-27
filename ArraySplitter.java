@@ -7,7 +7,10 @@ public class ArraySplitter {
         // calculate the sum of nums in array
         for (int num : nums){
             totalSum+=num;
-
+        }
+        // check if total sum is odd we can not split it evenly
+        if (totalSum%2!=0){
+            return false;
         }
     }
 }
