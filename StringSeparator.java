@@ -12,6 +12,7 @@ public class StringSeparator {
 
         scanner.close();
     }
+
     /*
     check if the length of input is less than 1 the return the input
     add star after every letter in the input
