@@ -12,5 +12,9 @@ public class ArraySplitter {
         if (totalSum%2!=0){
             return false;
         }
+        return canBeSplit(nums,0,totalSum/2,0,0);
+    }
+    private static boolean canBeSplit(int[] nums, int index, int targetSum, int group5Sum, int group3Sum) {
+
     }
 }
