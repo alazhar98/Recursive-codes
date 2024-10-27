@@ -6,5 +6,11 @@ public class SubstringDistance {
         //check if str does not contain sub
         if (!str.contains(sub)) {
             return 0;
+        }
+        // check if str is start and end with sub then Largest Substring will be str length
+        if (str.startsWith(sub) && str.endsWith(sub)){
+            return str.length();
+
+        }
     }
 }
