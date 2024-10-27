@@ -1,6 +1,8 @@
 public class SubstringDistance {
     public static void main(String[] args){
-
+        System.out.println(strDist("catcowcat", "cat"));
+        System.out.println(strDist("catcowcat", "cow"));
+        System.out.println(strDist("cccatcowcatxx", "cat"));
     }
     public static int strDist(String str, String sub){
         //check if str does not contain sub
