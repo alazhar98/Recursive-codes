@@ -19,7 +19,11 @@ public class ArraySplitter {
         if (index==nums.length){
             return group5Sum==targetSum && group3Sum==targetSum;
         }
+        int num = nums[index];
 
+        //if the number is a multiple of 5 add to the group5Sum
+        if (num % 5 == 0) {
+            return canBeSplit(nums, index + 1, targetSum, group5Sum + num, group3Sum);
 
     }
 }
