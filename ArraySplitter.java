@@ -24,6 +24,10 @@ public class ArraySplitter {
         //if the number is a multiple of 5 add to the group5Sum
         if (num % 5 == 0) {
             return canBeSplit(nums, index + 1, targetSum, group5Sum + num, group3Sum);
+        }
+        // If the number is a multiple of 3 but not 5 add it to the group3Sum
+        else if (num % 3 == 0) {
+            return canBeSplit(nums, index + 1, targetSum, group5Sum, group3Sum + num);
 
     }
 }
