@@ -15,6 +15,11 @@ public class ArraySplitter {
         return canBeSplit(nums,0,totalSum/2,0,0);
     }
     private static boolean canBeSplit(int[] nums, int index, int targetSum, int group5Sum, int group3Sum) {
+        // if reach the end of the array
+        if (index==nums.length){
+            return group5Sum==targetSum && group3Sum==targetSum;
+        }
+
 
     }
 }
