@@ -13,8 +13,12 @@ public class ParenthesisExtractor {
             if(str.charAt(str.length()-1)==')'){
                 return str;
             }
+            // if nit call again to the end
+            return parenBit(str.substring(0,str.length()-1));
 
             }
+        // if start not equal to ( call again until it found
+        return parenBit(str.substring(1));
 
         }
     }
