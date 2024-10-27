@@ -13,6 +13,12 @@ public class BunnyEars {
 
         scanner.close();
     }
+    /*
+    if n =0 then that mean no bunnies
+    if n is odd number then add 2 ears for the current bunny and call the function for n - 1
+    if n is even then add 3 ears for the current bunny and call the function for n - 1
+
+     */
     public static int bunnyEars2(int n){
         if(n==0){
             return 0;
