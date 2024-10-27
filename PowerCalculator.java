@@ -15,7 +15,10 @@ public class PowerCalculator {
 
         scanner.close();
     }
-
+    /*
+    if n is 1 so anything will return base
+    else  result of base raised to n by multiplying base with the result
+     */
     public static int powerN(int base , int n ){
         if (n==1 ){
             return base;
