@@ -1,6 +1,8 @@
 public class ArraySplitter {
     public static void main(String[] args) {
-
+        System.out.println(split53(new int[]{1, 1}));
+        System.out.println(split53(new int[]{1, 1, 1}));
+        System.out.println(split53(new int[]{2, 4, 2}));
     }
 
     public static boolean split53(int[] nums) {
