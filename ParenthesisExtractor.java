@@ -6,5 +6,8 @@ public class ParenthesisExtractor {
         if(str.isEmpty()){
             return "";
         }
+        if(str.charAt(0)=="("){
+
+        }
     }
 }
