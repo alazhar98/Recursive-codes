@@ -16,6 +16,10 @@ public class SubstringDistance {
         if (str.startsWith(sub)){
             return strDist(str.substring(0,str.length()-1),sub);
         }
+        // if str is end with sub but not start
+        if (str.endsWith(sub)){
+            return strDist(str.substring(1), sub);
         }
+
     }
 }
