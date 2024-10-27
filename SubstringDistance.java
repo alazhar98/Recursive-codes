@@ -12,5 +12,10 @@ public class SubstringDistance {
             return str.length();
 
         }
+        // if str is start with sum but not end
+        if (str.startsWith(sub)){
+            return strDist(str.substring(0,str.length()-1),sub);
+        }
+        }
     }
 }
