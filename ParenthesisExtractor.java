@@ -1,6 +1,8 @@
 public class ParenthesisExtractor {
     public static void main(String[] args){
-
+        System.out.println(parenBit("xyz(abc)123"));
+        System.out.println(parenBit("x(hello)"));
+        System.out.println(parenBit("(xy)1"));
     }
     public static String parenBit(String str){
         // check if str is empty return nothing
