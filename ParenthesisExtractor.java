@@ -8,7 +8,13 @@ public class ParenthesisExtractor {
             return "";
         }
         //check if str is start by ( and leave the others before
-        if(str.charAt(0)=="("){
+        if(str.charAt(0)=='('){
+            // check If the last character is ) then return the substring
+            if(str.charAt(str.length()-1)==')'){
+                return str;
+            }
+
+            }
 
         }
     }
