@@ -16,6 +16,7 @@ public class TriangleBlocks {
         return 0 if no rows
         others if second row then will be total number of blocks 2+(2-1)=3
          */
+
     public static int triangle(int n){
         if(n==0){
             return 0;
