@@ -3,6 +3,7 @@ public class SubstringDistance {
 
     }
     public static int strDist(String str, String sub){
+        //check if str does not contain sub
         if (!str.contains(sub)) {
             return 0;
     }
