@@ -20,6 +20,7 @@ public class SubstringDistance {
         if (str.endsWith(sub)){
             return strDist(str.substring(1), sub);
         }
-
+        // if not start and not end with sub
+        return strDist(str.substring(1, str.length() - 1), sub);
     }
 }
