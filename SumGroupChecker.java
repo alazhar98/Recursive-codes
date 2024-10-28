@@ -20,5 +20,10 @@ public class SumGroupChecker {
                 groupSum5(start+1,nums,target-current);
             }
         }
+        boolean include = groupSum5(start+1 ,nums,target-current);
+        boolean exclude = groupSum5(start+1,nums , target);
+
+        return include || exclude;
     }
+
 }
