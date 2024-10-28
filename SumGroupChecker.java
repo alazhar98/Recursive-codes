@@ -1,6 +1,9 @@
 public class SumGroupChecker {
     public static void main(String[] args){
 
+        System.out.println(groupSum5(0, new int[]{2, 5, 10, 4}, 19));
+        System.out.println(groupSum5(0, new int[]{2, 5, 10, 4}, 17));
+        System.out.println(groupSum5(0, new int[]{2, 5, 10, 4}, 12));
     }
     public static boolean groupSum5(int start, int[] nums, int target) {
         //if reach the end of the array
