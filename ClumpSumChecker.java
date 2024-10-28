@@ -7,5 +7,9 @@ public class ClumpSumChecker {
         if (start>=nums.length){
             return target==0;
         }
+
+        int current = nums[start];
+        int sum =0;
+        int count =0;
     }
 }
