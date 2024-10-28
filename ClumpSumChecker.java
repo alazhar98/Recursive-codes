@@ -17,5 +17,9 @@ public class ClumpSumChecker {
             sum = sum +nums[start+count];
             count++;
         }
+        // include the clump in the sum
+        if (groupSumClump(start + count, nums, target - sum)) {
+            return true;
+        }
     }
 }
