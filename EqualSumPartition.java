@@ -26,5 +26,9 @@ public class EqualSumPartition {
         if (target==0){
             return true;
         }
+        // if the index is more than the length
+        if (index >= nums.length){
+            return false;
+        }
     }
 }
