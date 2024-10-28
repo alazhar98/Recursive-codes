@@ -25,5 +25,7 @@ public class ClumpSumChecker {
         if (groupSumClump(start + count, nums, target)) {
             return true;
         }
+        // if no valid group found the return false
+        return false;
     }
 }
