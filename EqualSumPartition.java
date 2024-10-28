@@ -16,7 +16,7 @@ public class EqualSumPartition {
         // calculate target
         int target = sum/2;
 
-
+        return splitHelper(nums,0,target);
     }
     private static boolean splitHelper(int[] nums, int index, int target) {
 
