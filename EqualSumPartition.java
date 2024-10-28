@@ -34,5 +34,9 @@ public class EqualSumPartition {
         if (target<0){
             return false;
         }
+        //include the current number to the group
+        if (splitHelper(nums, index + 1, target - nums[index])) {
+            return true;
+        }
     }
 }
