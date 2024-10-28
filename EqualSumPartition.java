@@ -9,6 +9,10 @@ public class EqualSumPartition {
         for (int num : nums){
             sum=sum+num;
         }
+        // if sum is odd then we can no split them
+        if(sum%2 != 0){
+            return false;
+        }
     }
     private static boolean splitHelper(int[] nums, int index, int target) {
 
