@@ -11,5 +11,11 @@ public class ClumpSumChecker {
         int current = nums[start];
         int sum =0;
         int count =0;
+
+        // find the sum
+        while (start+count< nums.length && nums[start+count]==current){
+            sum = sum +nums[start+count];
+            count++;
+        }
     }
 }
