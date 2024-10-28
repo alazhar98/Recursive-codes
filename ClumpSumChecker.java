@@ -21,5 +21,9 @@ public class ClumpSumChecker {
         if (groupSumClump(start + count, nums, target - sum)) {
             return true;
         }
+        // exclude the clump from the sum
+        if (groupSumClump(start + count, nums, target)) {
+            return true;
+        }
     }
 }
