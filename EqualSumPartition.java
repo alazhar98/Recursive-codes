@@ -30,5 +30,9 @@ public class EqualSumPartition {
         if (index >= nums.length){
             return false;
         }
+        // if the target is negative then we exceed the sum because target = sum/2
+        if (target<0){
+            return false;
+        }
     }
 }
