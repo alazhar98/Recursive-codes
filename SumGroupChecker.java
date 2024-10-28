@@ -10,6 +10,7 @@ public class SumGroupChecker {
         int current = nums[start];
         // if current number is multiple if 5
         if (current%5==0){
+            // if next number is 1
             if(start+1 <nums.length && nums[start+1]==1){
                 return groupSum5(start + 2, nums, target - current);
 
