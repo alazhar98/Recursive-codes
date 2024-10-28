@@ -38,5 +38,8 @@ public class EqualSumPartition {
         if (splitHelper(nums, index + 1, target - nums[index])) {
             return true;
         }
+
+        return splitHelper(nums, index + 1, target);
     }
+
 }
