@@ -1,8 +1,11 @@
 public class EqualSumPartition {
     public static void main(String[] args){
+
+
         System.out.println(splitArray(new int[]{2, 2}));
         System.out.println(splitArray(new int[]{2, 3}));
         System.out.println(splitArray(new int[]{5, 2, 3}));
+
 
     }
     public static boolean splitArray(int[] nums) {
