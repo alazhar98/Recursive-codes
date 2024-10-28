@@ -1,9 +1,12 @@
 public class ClumpSumChecker {
     public static void main(String[] args ){
 
+
         System.out.println(groupSumClump(0, new int[]{2, 4, 8}, 10));
         System.out.println(groupSumClump(0, new int[]{1, 2, 4, 8, 1}, 14));
         System.out.println(groupSumClump(0, new int[]{2, 4, 4, 8}, 14));
+
+
     }
     public static boolean groupSumClump(int start, int[] nums, int target) {
         // if reach the end of the array
