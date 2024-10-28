@@ -22,5 +22,9 @@ public class EqualSumPartition {
 
     private static boolean splitHelper(int[] nums, int index, int target) {
 
+        // if target is equal to zero then we found split
+        if (target==0){
+            return true;
+        }
     }
 }
