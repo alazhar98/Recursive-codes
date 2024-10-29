@@ -19,8 +19,8 @@ public class NonAdjacentSum {
         // include current number + skip the next number
         boolean includeCurrent = canSelectGroup(start+2 , nums , target-nums[start]);
 
-        // exclude the current number and move to the next
-        boolean exclude = canSelectGroup(start+1,nums , target);
+        // Skip current number
+        boolean skipCurrent = canSelectGroup(start+1,nums , target);
 
         return
 
