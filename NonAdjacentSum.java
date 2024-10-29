@@ -16,14 +16,9 @@ public class NonAdjacentSum {
         if (start>=nums.length){
             return false;
         }
-        boolean include = false;
+        // include current number + skip the next number
+        boolean includeCurrent = canSelectGroup(start+2 , nums , target-nums[start]);
 
-        // check the number is not exceed target
-        if(nums[start] <=target){
-            //skip the adjacent number to check the next number
-            include= canSelectGroup(start+2, nums ,target-nums[start]);
-
-        }
         // exclude the current number and move to the next
         boolean exclude = canSelectGroup(start+1,nums , target);
 
