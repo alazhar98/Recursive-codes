@@ -3,7 +3,7 @@ public class NonAdjacentSum {
     public static void main(String[] args) {
 
     }
-    public static boolean groupNoAdj(int start, int[] nums, int target) {
+    public static boolean canSelectGroup(int start, int[] nums, int target) {
         // if the target is 0 then valid group is founded
         if (target==0){
             return true;
@@ -16,6 +16,7 @@ public class NonAdjacentSum {
 
         // check the number is not exceed target
         if(nums[start] <=target){
+            include=
 
         }
 
