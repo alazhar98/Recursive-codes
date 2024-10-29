@@ -1,5 +1,6 @@
+
 public class NonAdjacentSum {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
     }
     public static boolean groupNoAdj(int start, int[] nums, int target) {
@@ -7,6 +8,13 @@ public class NonAdjacentSum {
         if (target==0){
             return true;
         }
+        // if reach the last element in the array
+        if (start>=nums.length){
+            return false;
+        }
 
-    }
+
+
+
+   }
 }
