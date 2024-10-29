@@ -1,6 +1,10 @@
 
 public class NonAdjacentSum {
     public static void main(String[] args) {
+        int[] nums = {2, 5, 10, 4};
+        System.out.println(canSelectGroup(0, nums, 12));
+        System.out.println(canSelectGroup(0, nums, 14));
+        System.out.println(canSelectGroup(0,nums, 7));
 
     }
     public static boolean canSelectGroup(int start, int[] nums, int target) {
@@ -23,8 +27,6 @@ public class NonAdjacentSum {
         boolean skipCurrent = canSelectGroup(start+1,nums , target);
 
         return includeCurrent|| skipCurrent;
-
-
 
    }
 }
