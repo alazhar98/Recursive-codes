@@ -1,6 +1,7 @@
 
 public class NonAdjacentSum {
     public static void main(String[] args) {
+
         int[] nums = {2, 5, 10, 4};
         System.out.println(canSelectGroup(0, nums, 12));
         System.out.println(canSelectGroup(0, nums, 14));
