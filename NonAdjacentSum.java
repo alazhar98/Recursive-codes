@@ -8,6 +8,10 @@ public class NonAdjacentSum {
         if (target==0){
             return true;
         }
+        // if sum has exceed the target
+        if (target<0){
+            return false;
+        }
         // if reach the last element in the array
         if (start>=nums.length){
             return false;
@@ -19,9 +23,11 @@ public class NonAdjacentSum {
             //skip the adjacent number to check the next number
             include= canSelectGroup(start+2, nums ,target-nums[start]);
 
-
         }
+        // exclude the current number and move to the next
+        boolean exclude = canSelectGroup(start+1,nums , target);
 
+        return
 
 
 
