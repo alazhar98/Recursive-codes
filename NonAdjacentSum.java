@@ -22,7 +22,7 @@ public class NonAdjacentSum {
         // Skip current number
         boolean skipCurrent = canSelectGroup(start+1,nums , target);
 
-        return
+        return includeCurrent|| skipCurrent;
 
 
 
