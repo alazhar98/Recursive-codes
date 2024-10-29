@@ -16,7 +16,9 @@ public class NonAdjacentSum {
 
         // check the number is not exceed target
         if(nums[start] <=target){
-            include=
+            //skip the adjacent number to check the next number
+            include= canSelectGroup(start+2, nums ,target-nums[start]);
+
 
         }
 
