@@ -12,6 +12,12 @@ public class NonAdjacentSum {
         if (start>=nums.length){
             return false;
         }
+        boolean include = false;
+
+        // check the number is not exceed target
+        if(nums[start] <=target){
+
+        }
 
 
 
