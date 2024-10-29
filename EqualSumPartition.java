@@ -5,7 +5,7 @@ public class EqualSumPartition {
 
         System.out.println(splitArray(new int[]{2, 2}));
         System.out.println(splitArray(new int[]{2, 3}));
-        System.out.println(splitArray(new int[]{5, 2, 3}));
+        System.out.println(splitArray(new int[]{7,3,2,2}));
 
 
     }
