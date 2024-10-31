@@ -1,4 +1,6 @@
 import java.util.*;
+
+
 class Subject {
     String name;
     String teacher ;
@@ -44,4 +46,14 @@ class School{
         this.address=address;
         this.students=new HashMap<>();
     }
+}
+
+public class SchoolSystem{
+    private static HashMap<String, School> schools = new HashMap<>();
+
+    public static void addSchool(String name , String address){
+        schools.put(name, new School(name,address));
+    }
+
+
 }
