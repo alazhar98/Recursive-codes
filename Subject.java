@@ -31,6 +31,17 @@ class Student{
         this.age=age;
         this.id=id ;
 
+    }
+}
 
+class School{
+    String name;
+    String address ;
+    HashMap<String, Student> students;
+
+    public School(String name, String address) {
+        this.name=name ;
+        this.address=address;
+        this.students=new HashMap<>();
     }
 }
