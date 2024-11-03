@@ -3,9 +3,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SchoolSystem{
+public class SchoolSystem {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // HashMaps for schools and students
         Map<String, Map<String, Object>> schools = new HashMap<>();
 
@@ -28,11 +28,13 @@ public class SchoolSystem{
                 int totalMarks = 0;
                 List<Map<String, Object>> subjects = (List<Map<String, Object>>) student.get("Subjects");
 
+                // Calculate total marks for the student
                 for (Map<String, Object> subject : subjects) {
                     totalMarks += (int) subject.get("Marks");
                 }
                 double averageMarks = (double) totalMarks / subjects.size();
-                System.out.println(student.get("ID") + ": " + student.get("Name") + " | Average Marks: " + averageMarks);
+                System.out.printf("%d: %s | Average Marks: %.2f%n",
+                        student.get("ID"), student.get("Name"), averageMarks);
             }
             System.out.println();
         }
@@ -43,30 +45,28 @@ public class SchoolSystem{
         schoolInfo.put("Address", address);
 
         List<Map<String, Object>> students = new ArrayList<>();
-        students.add(createStudent(1, "Alazhar", "10", 15));
-        students.add(createStudent(2, "Fisal", "10", 16));
-        students.add(createStudent(3, "Mohammed ", "10", 15));
-        students.add(createStudent(4, "Salim", "10", 16));
-        students.add(createStudent(5, "Ahmed", "10", 15));
+        students.add(createStudent(1, "Alazhar", "10", 15, 85, 78, 90));
+        students.add(createStudent(2, "Fisal", "10", 16, 76, 82, 88));
+        students.add(createStudent(3, "Mohammed", "10", 15, 90, 77, 95));
+        students.add(createStudent(4, "Salim", "10", 16, 80, 85, 87));
+        students.add(createStudent(5, "Ahmed", "10", 15, 90, 77, 99));
 
         schoolInfo.put("Students", students);
         return schoolInfo;
     }
 
-    private static Map<String, Object> createStudent(int id, String name, String grade, int age) {
+    private static Map<String, Object> createStudent(int id, String name, String grade, int age, int mathMarks, int scienceMarks, int artMarks) {
         Map<String, Object> student = new HashMap<>();
         student.put("ID", id);
         student.put("Name", name);
         student.put("Grade", grade);
         student.put("Age", age);
 
-        // Adding subjects for each student
+        // Adding subjects for each student with different marks
         List<Map<String, Object>> subjects = new ArrayList<>();
-        subjects.add(createSubject("Math", "Mr. Smith", 3, 85, "A", "Good"));
-        subjects.add(createSubject("Science", "Ms. Johnson", 4, 78, "B", "Needs Improvement"));
-        subjects.add(createSubject("English", "Mrs. Lee", 2, 90, "A", "Excellent"));
-        subjects.add(createSubject("History", "Mr. Brown", 3, 88, "A", "Very Good"));
-        subjects.add(createSubject("Art", "Ms. Green", 2, 75, "B", "Average"));
+        subjects.add(createSubject("Math", "Mr. Smith", 3, mathMarks, "A", "Good"));
+        subjects.add(createSubject("Science", "Ms. Johnson", 4, scienceMarks, "B", "Needs Improvement"));
+        subjects.add(createSubject("Art", "Ms. Green", 2, artMarks, "A", "Excellent"));
 
         student.put("Subjects", subjects);
         return student;
