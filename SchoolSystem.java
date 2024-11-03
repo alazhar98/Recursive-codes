@@ -2,41 +2,122 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class SchoolSystem {
 
     public static void main(String[] args) {
         // HashMaps for schools and students
         Map<String, Map<String, Object>> schools = new HashMap<>();
+        initializeSchools(schools);
 
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Search by Student Name");
+            System.out.println("2. Search by School Name");
+            System.out.println("3. Search by Subject Name");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter student name: ");
+                    String studentName = scanner.nextLine();
+                    searchByStudent(schools, studentName);
+                    break;
+                case 2:
+                    System.out.print("Enter school name: ");
+                    String schoolName = scanner.nextLine();
+                    searchBySchool(schools, schoolName);
+                    break;
+                case 3:
+                    System.out.print("Enter subject name: ");
+                    String subjectName = scanner.nextLine();
+                    searchBySubject(schools, subjectName);
+                    break;
+                case 4:
+                    System.out.println("Exiting...");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    private static void initializeSchools(Map<String, Map<String, Object>> schools) {
         // Adding schools with their addresses and unique students
-        schools.put("School A", createSchool("School A", "123 muscat"));
-        schools.put("School B", createSchool("School B", "456 alrustaq"));
-        schools.put("School C", createSchool("School C", "789 fanja"));
-        schools.put("School D", createSchool("School D", "101 salalah"));
-        schools.put("School E", createSchool("School E", "202 sohar"));
+        schools.put("School A", createSchool("School A", "muscat"));
+        schools.put("School B", createSchool("School B", "alrustaq"));
+        schools.put("School C", createSchool("School C", "fanja"));
+        schools.put("School D", createSchool("School D", "salalah"));
+        schools.put("School E", createSchool("School E", "sohar"));
+    }
 
-        // Output schools and their students with average marks
+    private static void searchByStudent(Map<String, Map<String, Object>> schools, String studentName) {
+        boolean found = false;
         for (Map.Entry<String, Map<String, Object>> entry : schools.entrySet()) {
-            String schoolName = entry.getKey();
-            Map<String, Object> schoolInfo = entry.getValue();
+            List<Map<String, Object>> students = (List<Map<String, Object>>) entry.getValue().get("Students");
+            for (Map<String, Object> student : students) {
+                if (student.get("Name").equals(studentName)) {
+                    System.out.println("Details for student " + studentName + ":");
+                    System.out.printf("ID: %d, Grade: %s, Age: %d%n", student.get("ID"), student.get("Grade"), student.get("Age"));
+                    System.out.println("Subjects and Marks:");
+                    List<Map<String, Object>> subjects = (List<Map<String, Object>>) student.get("Subjects");
+                    int totalMarks = 0;
+
+                    for (Map<String, Object> subject : subjects) {
+                        int marks = (int) subject.get("Marks");
+                        totalMarks += marks;
+                        System.out.printf(" - %s: %d marks%n", subject.get("SubjectName"), marks);
+                    }
+
+                    double averageMarks = (double) totalMarks / subjects.size();
+                    System.out.printf("Average Marks: %.2f%n", averageMarks);
+                    found = true;
+                    break;
+                }
+            }
+        }
+        if (!found) {
+            System.out.println("Student " + studentName + " not found.");
+        }
+    }
+
+    private static void searchBySchool(Map<String, Map<String, Object>> schools, String schoolName) {
+        Map<String, Object> schoolInfo = schools.get(schoolName);
+        if (schoolInfo != null) {
             System.out.println("School: " + schoolName + " (" + schoolInfo.get("Address") + ")");
             System.out.println("Students:");
-
             List<Map<String, Object>> students = (List<Map<String, Object>>) schoolInfo.get("Students");
             for (Map<String, Object> student : students) {
-                int totalMarks = 0;
-                List<Map<String, Object>> subjects = (List<Map<String, Object>>) student.get("Subjects");
-
-                // Calculate total marks for the student
-                for (Map<String, Object> subject : subjects) {
-                    totalMarks += (int) subject.get("Marks");
-                }
-                double averageMarks = (double) totalMarks / subjects.size();
-                System.out.printf("%d: %s | Average Marks: %.2f%n",
-                        student.get("ID"), student.get("Name"), averageMarks);
+                System.out.printf("%d: %s%n", student.get("ID"), student.get("Name"));
             }
-            System.out.println();
+        } else {
+            System.out.println("School " + schoolName + " not found.");
+        }
+    }
+
+    private static void searchBySubject(Map<String, Map<String, Object>> schools, String subjectName) {
+        boolean found = false;
+        for (Map.Entry<String, Map<String, Object>> entry : schools.entrySet()) {
+            List<Map<String, Object>> students = (List<Map<String, Object>>) entry.getValue().get("Students");
+            for (Map<String, Object> student : students) {
+                List<Map<String, Object>> subjects = (List<Map<String, Object>>) student.get("Subjects");
+                for (Map<String, Object> subject : subjects) {
+                    if (subject.get("SubjectName").equals(subjectName)) {
+                        System.out.printf("Student: %s from %s scored %d in %s%n",
+                                student.get("Name"), entry.getKey(), subject.get("Marks"), subjectName);
+                        found = true;
+                    }
+                }
+            }
+        }
+        if (!found) {
+            System.out.println("Subject " + subjectName + " not found.");
         }
     }
 
