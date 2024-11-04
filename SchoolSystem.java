@@ -174,5 +174,37 @@ public class SchoolSystem {
         subject.put("Comments", comments);
         return subject;
     }
+    private static void retrieveMarks(Map<String, Map<String, Object>> schools, Scanner scanner) {
+        System.out.print("Enter school name: ");
+        String schoolName = scanner.nextLine();
+        Map<String, Object> schoolInfo = schools.get(schoolName);
+
+        if (schoolInfo != null) {
+            System.out.print("Enter student name: ");
+            String studentName = scanner.nextLine();
+            List<Map<String, Object>> students = (List<Map<String, Object>>) schoolInfo.get("Students");
+
+            for (Map<String, Object> student : students) {
+                if (student.get("Name").equals(studentName)) {
+                    System.out.print("Enter subject name: ");
+                    String subjectName = scanner.nextLine();
+                    List<Map<String, Object>> subjects = (List<Map<String, Object>>) student.get("Subjects");
+
+                    for (Map<String, Object> subject : subjects) {
+                        if (subject.get("SubjectName").equals(subjectName)) {
+                            System.out.printf("Marks for %s in %s: %d%n", studentName, subjectName, subject.get("Marks"));
+                            return;
+                        }
+                    }
+                    System.out.println("Subject not found.");
+                    return;
+                }
+            }
+            System.out.println("Student not found.");
+        } else {
+            System.out.println("School not found.");
+        }
+    }
+
 
 }
