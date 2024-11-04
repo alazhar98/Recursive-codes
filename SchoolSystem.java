@@ -18,7 +18,7 @@ public class SchoolSystem {
             System.out.println("4. Display Schools and Students");
             System.out.println("5. Retrieve Marks for a Student in a Subject");
             System.out.println("6. Calculate Average Marks for a Student");
-            System.out.println("5. Exit");
+            System.out.println("7. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
