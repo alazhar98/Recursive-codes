@@ -205,6 +205,42 @@ public class SchoolSystem {
             System.out.println("School not found.");
         }
     }
+    private static void calculateAverageMarks(Map<String, Map<String, Object>> schools, Scanner scanner) {
+        System.out.print("Enter school name: ");
+        String schoolName = scanner.nextLine();
+        Map<String, Object> schoolInfo = schools.get(schoolName);
+
+        if (schoolInfo != null) {
+            System.out.print("Enter student name: ");
+            String studentName = scanner.nextLine();
+            List<Map<String, Object>> students = (List<Map<String, Object>>) schoolInfo.get("Students");
+
+            for (Map<String, Object> student : students) {
+                if (student.get("Name").equals(studentName)) {
+                    List<Map<String, Object>> subjects = (List<Map<String, Object>>) student.get("Subjects");
+                    int totalMarks = 0;
+                    int subjectCount = subjects.size();
+
+                    for (Map<String, Object> subject : subjects) {
+                        totalMarks += (int) subject.get("Marks");
+                        System.out.printf("Subject: %s, Marks: %d%n", subject.get("SubjectName"), subject.get("Marks"));
+                    }
+
+                    if (subjectCount > 0) {
+                        double average = (double) totalMarks / subjectCount;
+                        System.out.printf("Average Marks for %s: %.2f%n", studentName, average);
+                    } else {
+                        System.out.println("No subjects found for the student.");
+                    }
+                    return;
+                }
+            }
+            System.out.println("Student not found.");
+        } else {
+            System.out.println("School not found.");
+        }
+    }
+
 
 
 }
