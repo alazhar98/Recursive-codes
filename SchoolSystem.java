@@ -21,7 +21,7 @@ public class SchoolSystem {
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -37,6 +37,12 @@ public class SchoolSystem {
                     displaySchools(schools);
                     break;
                 case 5:
+                    retrieveMarks(schools, scanner);
+                    break;
+                case 6:
+                    calculateAverageMarks(schools, scanner);
+                    break;
+                case 7:
                     System.out.println("Exiting...");
                     scanner.close();
                     return;
