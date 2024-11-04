@@ -143,12 +143,10 @@ public class SchoolSystem {
             System.out.println("School: " + schoolName + " (Address: " + entry.getValue().get("Address") + ")");
             List<Map<String, Object>> students = (List<Map<String, Object>>) entry.getValue().get("Students");
             for (Map<String, Object> student : students) {
-                System.out.printf("  Student: %s (ID: %d, Grade: %s, Age: %d)%n",
-                        student.get("Name"), student.get("ID"), student.get("Grade"), student.get("Age"));
+                System.out.printf("  Student: %s (ID: %d, Grade: %s, Age: %d)%n", student.get("Name"), student.get("ID"), student.get("Grade"), student.get("Age"));
                 List<Map<String, Object>> subjects = (List<Map<String, Object>>) student.get("Subjects");
                 for (Map<String, Object> subject : subjects) {
-                    System.out.printf("    Subject: %s, Marks: %d%n",
-                            subject.get("SubjectName"), subject.get("Marks"));
+                    System.out.printf("    Subject: %s, Marks: %d%n", subject.get("SubjectName"), subject.get("Marks"));
                 }
             }
         }
@@ -174,6 +172,7 @@ public class SchoolSystem {
         subject.put("Comments", comments);
         return subject;
     }
+
     private static void retrieveMarks(Map<String, Map<String, Object>> schools, Scanner scanner) {
         System.out.print("Enter school name: ");
         String schoolName = scanner.nextLine();
@@ -205,6 +204,7 @@ public class SchoolSystem {
             System.out.println("School not found.");
         }
     }
+
     private static void calculateAverageMarks(Map<String, Map<String, Object>> schools, Scanner scanner) {
         System.out.print("Enter school name: ");
         String schoolName = scanner.nextLine();
@@ -240,7 +240,6 @@ public class SchoolSystem {
             System.out.println("School not found.");
         }
     }
-
 
 
 }
