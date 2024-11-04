@@ -240,6 +240,4 @@ public class SchoolSystem {
             System.out.println("School not found.");
         }
     }
-
-
 }
